@@ -16,8 +16,8 @@ return new class extends Migration
             $table->softDeletes();
             $table->string('document', 20)->nullable()->unique();
             $table->string('username', 20)->nullable()->unique();
-            $table->tinyInteger('type', )->comment('0: Fisica, 1: Juridica');
-            $table->tinyInteger('active', )->comment('0: No, 1: Yes');
+            $table->tinyInteger('type', )->comment('0: Fisica, 1: Juridica')->default(0);
+            $table->tinyInteger('active', )->comment('0: No, 1: Yes')->default(1);
             $table->integer('group')->nullable();
         });
     }
