@@ -3,9 +3,9 @@
     * Copyright 2013-2023 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
     */
-    // 
+    //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -23,4 +23,21 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+});
+$(document).ready(function () {
+    $('form').on('submit', function (e) {
+        var $form = $(this);
+
+        // Verifique se o formulário já foi submetido
+        if ($form.data('submitted') === true) {
+            e.preventDefault(); // Impede o envio novamente
+            return;
+        }
+
+        // Marque o formulário como já submetido
+        $form.data('submitted', true);
+
+        // Desativa todos os botões de submit (opcional)
+        $form.find(':submit').attr('disabled', 'disabled');
+    });
 });

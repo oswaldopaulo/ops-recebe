@@ -162,5 +162,7 @@
     "Your email address is unverified.": "Seu endereço de e-mail não foi verificado.",
     "Photo": "Foto",
     "For your security, please confirm your password to continue.": "Por segurança, por favor confirme sua senha para continuar.",
-    "Need an account?": "Precisa de uma conta?"
+    "Need an account?": "Precisa de uma conta?",
+    "Have an account? Go to login": "Já tem um conta? vá para o login",
+    "Document": "CPF ou CNPJ"
 }

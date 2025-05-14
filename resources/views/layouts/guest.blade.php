@@ -30,7 +30,8 @@
         </footer>
     </div>
 </div>
-<script src="{{ url('assets/bootstrap-5.0.2/js/bootstrap.bundle.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url('assets/bootstrap-5.0.2/js/bootstrap.bundle.js') }}"></script>
+<script src="{{ url('assets/jquery-3.7.1.min.js') }}"></script>
 <script src="{{url('js/scripts.js')}}"></script>
 </body>
 </html>
