@@ -60,17 +60,18 @@
                             </div>
 
                             <div class="d-flex align-items-center gap-3">
-                                <x-primary-button>{{ __('Save') }}</x-primary-button>
+                                <x-primary-button >{{ __('Save') }}</x-primary-button>
 
-{{--                                @if (session('status') === 'profile-updated')--}}
-                                    <p
+
+                                @if (session('status') === 'profile-updated')
+                                    <div
                                         x-data="{ show: true }"
                                         x-show="show"
                                         x-transition
                                         x-init="setTimeout(() => show = false, 2000)"
-                                        class="small text-muted text"
-                                    >{{ __('Saved.') }}</p>
-{{--                                @endif--}}
+                                        class="alert alert-success p-1 px-2 m-0" role="alert" style="height: 2rem;"
+                                    ><i class="fa-regular fa-circle-check text-success me-1"></i>{{ __('Saved.') }}</div>
+                                @endif
                             </div>
                         </form>
                     </section>

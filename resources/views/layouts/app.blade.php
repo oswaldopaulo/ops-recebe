@@ -9,6 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{url('css/styles.css')}}" rel="stylesheet" />
     <script src="{{ url('assets/fontawesome-free-6.7.2/js/all.js') }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
