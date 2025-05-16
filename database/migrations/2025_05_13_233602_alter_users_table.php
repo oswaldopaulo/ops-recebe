@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('username', 20)->nullable()->unique();
             $table->tinyInteger('type', )->comment('0: Fisica, 1: Juridica')->default(0);
             $table->tinyInteger('active', )->comment('0: No, 1: Yes')->default(1);
+            $table->string('role', 10)->default('user')->comment('user, admin');
             $table->integer('group')->nullable();
         });
     }
