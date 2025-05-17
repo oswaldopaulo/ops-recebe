@@ -18,8 +18,18 @@
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
+{{--    <h4 class="navbar-text">Perfil</h4>--}}
+    @isset($header)
+        <header >
+            <div class="navbar-text">
+                {{ $header }}
+            </div>
+        </header>
+    @endisset
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
+
+
 {{--            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />--}}
 {{--            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>--}}
         </div>
@@ -29,12 +39,12 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ url("setting") }}">{{__('Settings')}}</a></li>
+{{--                <li><a class="dropdown-item" href="{{ url("setting") }}">{{__('Settings')}}</a></li>--}}
                 <li><a class="dropdown-item" href="{{ url("profile") }}">{{__("Profile")}}</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
 
-                    <form id="form-logout" method="POST" action="{{ route('logout') }}">
+                    <form id="formlogout" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item">Logout</button>
                     </form>
@@ -51,79 +61,39 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    @foreach(\App\Models\MenuSession::all() as $session)
-                        <div class="sb-sidenav-menu-heading">{{ $session->description }}</div>
-                        @foreach(\App\Models\MenuMenu::where('session_id', $session->id)->get() as $menu)
 
-                            <a class="nav-link" href="{{ $menu->route }}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                {{ $menu->description }}
-                            </a>
-                        @endforeach
-                    @endforeach
+                    <div class="sb-sidenav-menu-heading">{{ __('Admin') }}</div>
+{{--                    <a class="nav-link" href="{{ url('settings')}}">--}}
+{{--                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>--}}
+{{--                        {{__('Settings')}}--}}
+{{--                    </a>--}}
 
-                    <div class="sb-sidenav-menu-heading">Core</div>
+{{--                    <div class="sb-sidenav-menu-heading">{{__('Core')}}</div>--}}
                     <a class="nav-link" href="{{ url('dashboard')}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
+                        {{__('Dashboard')}}
                     </a>
-                    <div class="sb-sidenav-menu-heading">Interface</div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    <a class="nav-link" href="{{ url('profile')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
+                        {{__('Profile')}}
                     </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                        </nav>
-                    </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        Pages
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                Authentication
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="login.html">Login</a>
-                                    <a class="nav-link" href="register.html">Register</a>
-                                    <a class="nav-link" href="password.html">Forgot Password</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                Error
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="401.html">401 Page</a>
-                                    <a class="nav-link" href="404.html">404 Page</a>
-                                    <a class="nav-link" href="500.html">500 Page</a>
-                                </nav>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link" href="charts.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Charts
-                    </a>
-                    <a class="nav-link" href="tables.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Tables
-                    </a>
+
+                    <hr class="nav-separator">
+
+                    <button type="button" class="nav-link btn btn-link" onclick="formlogout.submit()" >
+                        <div class="sb-nav-link-icon"><i class="fas fa-right-to-bracket"></i></div>
+                        {{__('Logout')}}
+                    </button>
+
+
+
+
+
                 </div>
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                Start Bootstrap
+                {{ Auth::user()->username ?? Auth::user()->document ?? Auth::user()->email ?? ""}}
             </div>
         </nav>
     </div>
@@ -132,11 +102,11 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                    <div  class="text-muted small"><a href="mailto:oswaldo.paulo@gmail.com">Copyright &copy; oswaldo.paulo@gmail.com</a></div>
                     <div>
-                        <a href="#">Privacy Policy</a>
+                        <a href="{{ url('privacy') }}">Privacy Policy</a>
                         &middot;
-                        <a href="#">Terms &amp; Conditions</a>
+                        <a href="{{ url('terms') }}">Terms &amp; Conditions</a>
                     </div>
                 </div>
             </div>

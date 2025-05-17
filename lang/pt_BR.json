@@ -167,5 +167,7 @@
     "Document": "CPF ou CNPJ",
     "Recover password": "Recuperar Senha",
     "Are you sure you want to delete your account?":"Você tem certeza de que deseja excluir sua conta?",
-    "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente apagados. Por favor, insira sua senha para confirmar que deseja excluir sua conta de forma permanente."
+    "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente apagados. Por favor, insira sua senha para confirmar que deseja excluir sua conta de forma permanente.",
+    "Settings": "Configurações"
+
 }
