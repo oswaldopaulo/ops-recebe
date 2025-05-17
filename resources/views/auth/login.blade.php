@@ -18,7 +18,7 @@
                                                id="email"
                                                name="email"
                                                value="{{old('email')}}"
-                                               type="email"
+                                               type="text"
                                                required
                                                autofocus
                                                autocomplete="username"
