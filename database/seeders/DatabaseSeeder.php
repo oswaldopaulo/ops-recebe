@@ -22,21 +22,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@tester.com',
             'password' => bcrypt('test'),
             'role' => 'admin',
+            'username'=>'test',
             'email_verified_at' => now(),
         ]);
 
-        MenuSession::create([
-            'description'=>'Admin',
-            'role'=>'admin',
-            'tooltips'=>'Admin'
-        ]);
 
 
-        MenuMenu::create([
-            'session_id'=>MenuSession::where('description','Admin')->first()->id,
-            'description'=>'Profile',
-            'route'=>'profile',
-        ]);
 
 
     }
