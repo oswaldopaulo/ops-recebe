@@ -78,6 +78,11 @@
                         {{__('Profile')}}
                     </a>
 
+                    <a class="nav-link" href="{{ url('contacts')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                        {{__('Contacts')}}
+                    </a>
+
                     <hr class="nav-separator">
 
                     <button type="button" class="nav-link btn btn-link" onclick="formlogout.submit()" >
