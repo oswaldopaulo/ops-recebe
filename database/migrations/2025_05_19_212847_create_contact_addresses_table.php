@@ -15,7 +15,8 @@ return new class extends Migration
 
             $table->id();
             $table->string('descricao',50);
-            $table->foreignId("contactid")->references('id')->on('contacts')->onDelete('cascade');
+            $table->integer("contactid")->index();
+//            $table->foreignId("contactid")->references('id')->on('contacts')->onDelete('cascade');
             $table->string('cep',10)->index();
             $table->string('endereco',100);
             $table->string('bairro',100);

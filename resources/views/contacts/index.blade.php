@@ -12,9 +12,9 @@
                     <section>
                         <header class="d-flex justify-content-between align-items-center mb-4">
                             <div>
-                                <h2 class="fs-5 fw-medium text-dark">
+                                <h1 class="fs-5 fw-medium text-dark">
                                     {{ __('Contact List') }}
-                                </h2>
+                                </h1>
                                 <p class="mt-1 small text-muted">
                                     {{ __('Manage your contacts.') }}
                                 </p>

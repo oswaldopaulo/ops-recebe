@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userid');
-            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade'); // Definição da chave estrangeira
+            $table->Integer('userid')->index();
+//            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade'); // Definição da chave estrangeira
             $table->string('name', 100)->nullable();
             $table->string('document', 20)->nullable();
             $table->tinyInteger('type')->comment('0: Fisica, 1: Juridica')->default(0);
