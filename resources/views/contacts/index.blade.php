@@ -41,64 +41,7 @@
                             </div>
                         @endif
 
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Document') }}</th>
-                                        <th>{{ __('Type') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                        <th>{{ __('Actions') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($contacts as $contact)
-                                        <tr>
-                                            <td>{{ $contact->name }}</td>
-                                            <td>{{ $contact->document }}</td>
-                                            <td>{{ $contact->type == 0 ? __('Individual') : __('Company') }}</td>
-                                            <td>
-                                                @if ($contact->active)
-                                                    <span class="badge bg-success">{{ __('Active') }}</span>
-                                                @else
-                                                    <span class="badge bg-danger">{{ __('Inactive') }}</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <div class="btn-group" role="group">
-                                                    <a href="{{ route('contacts.show', $contact) }}" class="btn btn-sm btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                    <a href="{{ route('contacts.edit', $contact) }}" class="btn btn-sm btn-primary">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        onclick="event.preventDefault();
-                                                        if(confirm('{{ __('Are you sure you want to delete this contact?') }}')) {
-                                                            document.getElementById('delete-contact-{{ $contact->id }}').submit();
-                                                        }">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                    <form id="delete-contact-{{ $contact->id }}" action="{{ route('contacts.destroy', $contact) }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="5" class="text-center">{{ __('No contacts found.') }}</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="mt-4">
-                            {{ $contacts->links() }}
-                        </div>
+                        <livewire:contacts-table theme="bootstrap-5" />
                     </section>
                 </div>
             </div>

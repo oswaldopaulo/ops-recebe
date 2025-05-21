@@ -19,7 +19,8 @@ Route::middleware('auth')->group(function () {
 
     // Contact routes
     Route::resource('contacts', App\Http\Controllers\ContactController::class);
-
+    Route::post('/contacts/{contact}/addresses', [App\Http\Controllers\ContactController::class, 'storeAddress'])
+        ->name('contacts.addresses.store');
     // Contact Address routes
     Route::post('/contacts/{contact}/addresses', [App\Http\Controllers\ContactController::class, 'storeAddress'])
         ->name('contacts.addresses.store');

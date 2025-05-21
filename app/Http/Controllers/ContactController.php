@@ -17,11 +17,7 @@ class ContactController extends Controller
      */
     public function index(): View
     {
-        $contacts = Contact::where('userid', Auth::id())
-            ->orderBy('name')
-            ->paginate(10);
-
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index');
     }
 
     /**
